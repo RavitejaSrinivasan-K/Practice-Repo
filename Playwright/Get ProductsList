@@ -36,8 +36,11 @@ test("Home-Page" , async({page})=>{
 
   await expect(logOut).toBeVisible();
 
+//wait for selector
+await page.waitForSelector('xpath=//div[@id="tbodyid"]//div//h4/a');
+
   //to check how many products are availble
- const allProducts = await page.$$('a');
+ const allProducts = await page.$$('xpath=//div[@id="tbodyid"]//div//h4/a');
   for (const element of allProducts) {
    const productsText =  await element.textContent();
    console.log(await productsText.trim());
