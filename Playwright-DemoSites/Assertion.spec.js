@@ -59,7 +59,7 @@ test("SOFT-Assertion" , async({page})=>{
     const userName = await page.getByPlaceholder('Username')
     await userName.fill("Admin")
 
-    //ASSERTION -HARD
+    //ASSERTION - HARD
     await expect(userName).toBeEnabled()
     await expect(userName).toBeEditable()
     await expect.soft(userName).toBeEmpty()
